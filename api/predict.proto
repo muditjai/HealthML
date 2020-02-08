@@ -1,0 +1,20 @@
+service HealthML {
+  rpc PredictDisease(PredictDiseaseRequest) returns (PredictDiseaseResponse)  {
+    option (google.api.http) = {
+    }
+  }
+}
+
+message PredictDiseaseRequest {
+  string id = 1;
+  float temperature = 2;
+}
+
+enum DiseaseClass {
+  UNDEFINED = 0,
+  NORMAL = 1,
+  FEVER = 2
+}
+message PredictDiseaseResponse {
+  DiseaseClass disease = 1;
+}
